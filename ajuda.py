@@ -1,5 +1,5 @@
 def exibir_ajuda():
-    print('\n1 - Ajuda:')
+    print('\n1. Ajuda:')
     print('\n1) Para que serve este sistema?\n')
     print('   Este sistema, Lucy Special Delivery, é um serviço de entregas especializado\n   em medicamentos fornecendo entregas rápidas e seguras para farmácias\n   localizadas na Asa Sul, especificamente na rua das farmácias.')
     print('\n2) Como utilizar este sistema?\n')

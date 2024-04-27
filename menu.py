@@ -1,12 +1,14 @@
+import ajuda
+
 print('*****************************************************')
 print('Boas-vindas ao Lucy Special Delivery!\n')
 print('Nossos drones entregam rapidamente seus pedidos.')
 print('*****************************************************\n')
+print('Aqui você pode:\n')
 
 opcao = 0
 
 while opcao != 5:
-    print('Aqui você pode:\n')
     print('1. Ajuda')
     print('2. Gerenciar drones')
     print('3. Gerenciar empresas parceiras')
@@ -16,7 +18,7 @@ while opcao != 5:
     opcao = int(input('Informe o número da opção desejada: '))
 
     if opcao == 1:
-        print('Ajuda')
+        ajuda.exibir_ajuda()
     elif opcao == 2:
         print('Gerenciar drones')
     elif opcao == 3:

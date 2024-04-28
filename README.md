@@ -27,7 +27,7 @@ Para baixar e executar localmente o programa, siga estas instruções:
 1. Clone o repositório para o seu ambiente local:
 
    ```bash
-   git clone https://github.com/seu-usuario/lucy-special-delivery.git
+   git clone https://github.com/izadoranetz/lucySpecialDelivery.git
 2. Navegue até o diretório do projeto:
     ```bash
     cd lucy-special-delivery

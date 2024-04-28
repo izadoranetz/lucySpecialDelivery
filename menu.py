@@ -1,5 +1,6 @@
 import ajuda
 import gerenciar_empresas
+import gerenciar_drones
 
 print('*****************************************************')
 print('Boas-vindas ao Lucy Special Delivery!\n')
@@ -28,7 +29,8 @@ def opcoes_menu():
         if opcao == 1:
             ajuda.exibir_ajuda()
         elif opcao == 2:
-            print('Gerenciar drones')
+            #se já tiver cadastrado algum drone, essa informação precisa ser mandada de volta pro módulo de gerenciar drones? (só copiei o comentário abaixo, não sei se entendi o significado dele)
+            drones_cadastrados = gerenciar_drones.gerenciar_drones(drones_cadastrados)
         elif opcao == 3:
             # se já tiver cadastrado alguma empresa, essa informação precisa ser mandada de volta pro módulo de gerenciar empresas
             empresas_cadastradas = gerenciar_empresas.gerenciar_empresas(empresas_cadastradas)

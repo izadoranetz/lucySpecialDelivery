@@ -11,25 +11,23 @@ def gerenciar_empresas():
         opcao = int(input('Informe o número da opção desejada: '))
         
         if opcao == 1:
-            
+            print('Cadastrar empresa parceira:\n')
             nome_empresa = input('Informe o nome da empresa: ')
             cnpj_empresa = input('Informe o CNPJ da empresa: ')
             endereco_empresa = input('Informe o endereço da empresa: ')
             nova_empresa = EmpresaParceira(nome_empresa, cnpj_empresa, endereco_empresa)
             sistema_empresas_parceiras.cadastrar_empresa(nova_empresa)
-            
         elif opcao == 2:
-            
+            print('Listar empresas parceiras:\n')
             sistema_empresas_parceiras.listar_empresas()
-            
         elif opcao == 3:
-            print('Excluir empresa parceira')
+            print('Excluir empresa parceira:\n')
+            cnpj_empresa_excluida = input('Informe o CNPJ da empresa a ser excluída: ')
+            sistema_empresas_parceiras.excluir_empresa(cnpj_empresa_excluida)
         elif opcao == 4:
             resposta = input('Retornar ao menu principal? (S/N) ')
             if resposta == 'S' or resposta == 's':
                 return sistema_empresas_parceiras.empresas
-            else:
-                print('Opção inválida.')
         else:
             print('Opção inválida. Tente novamente.')
 

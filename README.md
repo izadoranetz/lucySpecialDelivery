@@ -36,7 +36,7 @@ Para baixar e executar localmente o programa, siga estas instruções:
 1. Após clonar o repositório e navegar até o diretório do projeto, execute o seguinte comando no terminal:
 
     ```bash
-    python menu.py
+    python principal.py
 Isso iniciará o programa e exibirá o menu principal.
 Selecione uma opção no menu e siga as instruções fornecidas para utilizar as funcionalidades do sistema.
 

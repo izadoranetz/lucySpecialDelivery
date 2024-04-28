@@ -29,10 +29,8 @@ def opcoes_menu():
         if opcao == 1:
             ajuda.exibir_ajuda()
         elif opcao == 2:
-            #se já tiver cadastrado algum drone, essa informação precisa ser mandada de volta pro módulo de gerenciar drones? (só copiei o comentário abaixo, não sei se entendi o significado dele)
             drones_cadastrados = gerenciar_drones.gerenciar_drones(drones_cadastrados)
         elif opcao == 3:
-            # se já tiver cadastrado alguma empresa, essa informação precisa ser mandada de volta pro módulo de gerenciar empresas
             empresas_cadastradas = gerenciar_empresas.gerenciar_empresas(empresas_cadastradas)
         elif opcao == 4:
             # vai receber empresas_cadastradas e drones_cadastrados
@@ -49,10 +47,6 @@ def opcoes_menu():
                 print('Gerenciar remessas')
         elif opcao == 5:
             print('Finalizando programa. Tchau!')
-            # para consulta das empresas cadastradas no outro módulo
-            # for i, empresa in enumerate(empresas_cadastradas, 1):
-            #     print(f'Empresa {i}:')
-            #     print(f'Nome: {empresa.nome}\nCNPJ: {empresa.cnpj}\nEndereço: {empresa.endereco}\n')
             return
         else:
             print('Opção inválida. Tente novamente.')

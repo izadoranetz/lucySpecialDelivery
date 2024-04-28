@@ -9,7 +9,9 @@ print('*****************************************************\n')
 opcao = 0
 
 def opcoes_menu():
+    
     while True:
+
         print('\nMENU PRINCIPAL')
         print('1. Ajuda')
         print('2. Gerenciar drones')
@@ -24,11 +26,14 @@ def opcoes_menu():
         elif opcao == 2:
             print('Gerenciar drones')
         elif opcao == 3:
-            gerenciar_empresas.gerenciar_empresas()
+            empresas_cadastradas = gerenciar_empresas.gerenciar_empresas()
         elif opcao == 4:
             print('Gerenciar remessas')
         elif opcao == 5:
             print('Finalizando programa. Tchau!')
+            # for i, empresa in enumerate(empresas_cadastradas, 1):
+            #     print(f'Empresa {i}:')
+            #     print(f'Nome: {empresa.nome}\nCNPJ: {empresa.cnpj}\nEndereço: {empresa.endereco}\n')
             return
         else:
             print('Opção inválida. Tente novamente.')

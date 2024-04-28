@@ -1,5 +1,6 @@
-def gerenciar_empresas():
+def gerenciar_empresas(empresas):
     sistema_empresas_parceiras = SistemaEmpresasParceiras()
+    sistema_empresas_parceiras.empresas = empresas
     
     while True:
         
@@ -9,7 +10,7 @@ def gerenciar_empresas():
         print('    3. Excluir empresa parceira')
         print('    4. Retornar ao menu principal\n')
         opcao = int(input('Informe o número da opção desejada: '))
-        
+
         if opcao == 1:
             print('Cadastrar empresa parceira:\n')
             nome_empresa = input('Informe o nome da empresa: ')

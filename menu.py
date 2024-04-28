@@ -7,8 +7,12 @@ print('Nossos drones entregam rapidamente seus pedidos.')
 print('*****************************************************\n')
 
 opcao = 0
+empresas_cadastradas = []
+drones_cadastrados = []
 
 def opcoes_menu():
+    global empresas_cadastradas
+    global drones_cadastrados
     
     while True:
 
@@ -26,10 +30,21 @@ def opcoes_menu():
         elif opcao == 2:
             print('Gerenciar drones')
         elif opcao == 3:
-            empresas_cadastradas = gerenciar_empresas.gerenciar_empresas()
+            # se já tiver cadastrado alguma empresa, essa informação precisa ser mandada de volta pro módulo de gerenciar empresas
+            empresas_cadastradas = gerenciar_empresas.gerenciar_empresas(empresas_cadastradas)
         elif opcao == 4:
             # vai receber empresas_cadastradas e drones_cadastrados
-            print('Gerenciar remessas')
+            if len(drones_cadastrados) == 0 and len(empresas_cadastradas) == 0:
+                print('Nenhuma empresa e nenhum drone cadastrados. Cadastre uma empresa e um drone antes de gerenciar remessas.')
+                continue
+            elif len(empresas_cadastradas) == 0:
+                print('Nenhuma empresa cadastrada. Cadastre uma empresa antes de gerenciar remessas.')
+                continue
+            elif len(drones_cadastrados) == 0:
+                print('Nenhum drone cadastrado. Cadastre um drone antes de gerenciar remessas.')
+                continue
+            else:
+                print('Gerenciar remessas')
         elif opcao == 5:
             print('Finalizando programa. Tchau!')
             # para consulta das empresas cadastradas no outro módulo

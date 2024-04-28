@@ -23,6 +23,8 @@ def opcoes_menu():
         print('3. Gerenciar empresas parceiras')
         print('4. Gerenciar remessas')
         print('5. Sair\n')
+        
+        print(f'Empresas parceiras cadastradas: {len(empresas_cadastradas)}\nDrones disponíveis: {len(drones_cadastrados)}\n\n')
 
         opcao = int(input('Informe o número da opção desejada: '))
 

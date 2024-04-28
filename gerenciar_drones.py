@@ -4,11 +4,11 @@ def gerenciar_drones(drones):
     
     while True:
         
-        print('\n3. Gerenciar drone:')
-        print('\n    1. Cadastrar drone')
-        print('    2. Listar drones cadastrados')
-        print('    3. Excluir drone cadastrado')
-        print('    4. Retornar ao menu principal\n')
+        print('\nGERENCIAR DRONES')
+        print('1. Cadastrar drone')
+        print('2. Listar drones cadastrados')
+        print('3. Excluir drone cadastrado')
+        print('4. Retornar ao menu principal\n')
         opcao = int(input('Informe o número da opção desejada: '))
 
         if opcao == 1:

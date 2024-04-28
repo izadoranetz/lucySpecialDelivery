@@ -4,11 +4,11 @@ def gerenciar_empresas(empresas):
     
     while True:
         
-        print('\n3. Gerenciar empresas parceiras:')
-        print('\n    1. Cadastrar empresa parceira')
-        print('    2. Listar empresas parceiras')
-        print('    3. Excluir empresa parceira')
-        print('    4. Retornar ao menu principal\n')
+        print('\nGERENCIAR EMPRESAS PARCEIRAS')
+        print('1. Cadastrar empresa parceira')
+        print('2. Listar empresas parceiras')
+        print('3. Excluir empresa parceira')
+        print('4. Retornar ao menu principal\n')
         opcao = int(input('Informe o número da opção desejada: '))
 
         if opcao == 1:

@@ -1,6 +1,6 @@
 import ajuda
-import gerenciar_empresas
-import gerenciar_drones
+import gerenciador_empresas
+import gerenciador_drones
 
 print('*****************************************************')
 print('Boas-vindas ao Lucy Special Delivery!\n')
@@ -31,9 +31,9 @@ def opcoes_menu():
         if opcao == 1:
             ajuda.exibir_ajuda()
         elif opcao == 2:
-            drones_cadastrados = gerenciar_drones.gerenciar_drones(drones_cadastrados)
+            drones_cadastrados = gerenciador_drones.gerenciar_drones(drones_cadastrados)
         elif opcao == 3:
-            empresas_cadastradas = gerenciar_empresas.gerenciar_empresas(empresas_cadastradas)
+            empresas_cadastradas = gerenciador_empresas.gerenciar_empresas(empresas_cadastradas)
         elif opcao == 4:
             # vai receber empresas_cadastradas e drones_cadastrados
             if len(drones_cadastrados) == 0 and len(empresas_cadastradas) == 0:

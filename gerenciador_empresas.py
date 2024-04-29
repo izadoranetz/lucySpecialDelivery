@@ -14,7 +14,7 @@ def gerenciar_empresas(empresas):
         if opcao == 1:
             print('Cadastrar empresa parceira:\n')
             nome_empresa = input('Informe o nome da empresa: ')
-            cnpj_empresa = input('Informe o CNPJ da empresa: ')
+            cnpj_empresa = verifica_cnpj_valido()
             endereco_empresa = input('Informe o endereço da empresa: ')
             nova_empresa = EmpresaParceira(nome_empresa, cnpj_empresa, endereco_empresa)
             sistema_empresas_parceiras.cadastrar_empresa(nova_empresa)
@@ -66,3 +66,16 @@ class SistemaEmpresasParceiras:
                 print('Empresa removida com sucesso.')
                 return
         print('Empresa não encontrada.')
+
+def verifica_cnpj_valido():
+    while True:
+        cnpj = input('Informe o CNPJ da empresa: ')
+        if not cnpj.isnumeric():
+            print('CNPJ deve conter apenas números.')
+            continue
+        if len(cnpj) != 14:
+            print('CNPJ deve conter 14 números.')
+            continue
+        else:
+            return cnpj
+        

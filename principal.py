@@ -47,24 +47,27 @@ def opcoes_menu():
             empresas_cadastradas = gerenciador_empresas.gerenciar_empresas(empresas_cadastradas)
         elif opcao == 4:
             if len(empresas_cadastradas) == 0:
-                print('Nenhuma empresa cadastrada. Cadastre uma empresa antes de gerenciar as encomendas.')
+                print('Nenhuma empresa cadastrada. Cadastre uma empresa antes de gerenciar as encomendas.\n')
+                input('Voltar para o menu principal? (S) ')
                 continue
             else:
                 encomendas_cadastradas = gerenciador_encomendas.gerenciar_encomendas(encomendas_cadastradas, empresas_cadastradas)
         elif opcao == 5:
             # vai receber empresas_cadastradas e drones_cadastrados
             if len(drones_cadastrados) == 0 and len(empresas_cadastradas) == 0:
-                print('Nenhuma empresa e nenhum drone cadastrados. Cadastre uma empresa e um drone antes de gerenciar remessas.')
+                print('Nenhuma empresa e nenhum drone cadastrados. Cadastre uma empresa e um drone antes de gerenciar remessas.\n')
+                input('Voltar para o menu principal? (S) ')
                 continue
             elif len(empresas_cadastradas) == 0:
-                print('Nenhuma empresa cadastrada. Cadastre uma empresa antes de gerenciar remessas.')
+                print('Nenhuma empresa cadastrada. Cadastre uma empresa antes de gerenciar remessas.\n')
+                input('Voltar para o menu principal? (S) ')
                 continue
             elif len(drones_cadastrados) == 0:
-                print('Nenhum drone cadastrado. Cadastre um drone antes de gerenciar remessas.')
+                print('Nenhum drone cadastrado. Cadastre um drone antes de gerenciar remessas.\n')
+                input('Voltar para o menu principal? (S) ')
                 continue
             else:
                 encomendas_cadastradas = gerenciador_encomendas.gerenciar_encomendas(encomendas_cadastradas, empresas_cadastradas)
-            print('Gerenciar remessa')
         elif opcao == 6:
             print('Finalizando programa. Tchau!')
             return

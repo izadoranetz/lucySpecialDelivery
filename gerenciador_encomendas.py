@@ -1,5 +1,4 @@
 empresas_cadastradas = [[1, 'Empresa SA', 20000091]] #tirar depois
-import principal
 
 def gerenciar_encomendas(encomendas):
     sistema_encomendas = SistemaEncomendas()

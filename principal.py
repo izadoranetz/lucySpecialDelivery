@@ -1,6 +1,7 @@
 import ajuda
 import gerenciador_empresas
 import gerenciador_drones
+import gerenciador_encomendas
 
 print('*****************************************************')
 print('Boas-vindas ao Lucy Special Delivery!\n')
@@ -10,12 +11,12 @@ print('*****************************************************\n')
 opcao = 0
 empresas_cadastradas = []
 drones_cadastrados = []
-encomendas_cadastrados = []
+encomendas_cadastradas = []
 
 def opcoes_menu():
     global empresas_cadastradas
     global drones_cadastrados
-    global encomendas_cadastrados
+    global encomendas_cadastradas
     
     while True:
 
@@ -50,6 +51,7 @@ def opcoes_menu():
                 continue
             else:
                 print('Gerenciar remessas')
+                encomendas_cadastradas = gerenciador_encomendas.gerenciar_encomendas(encomendas_cadastradas, empresas_cadastradas)
         elif opcao == 5:
             print('Gerenciar remessa')
         elif opcao == 6:

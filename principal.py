@@ -51,7 +51,7 @@ def opcoes_menu():
                 continue
             else:
                 print('Gerenciar remessas')
-                encomendas_cadastradas = gerenciador_encomendas.gerenciar_encomendas(encomendas_cadastradas)
+                encomendas_cadastradas = gerenciador_encomendas.gerenciar_encomendas(encomendas_cadastradas, empresas_cadastradas)
         elif opcao == 5:
             print('Gerenciar remessa')
         elif opcao == 6:

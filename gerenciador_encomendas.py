@@ -1,6 +1,4 @@
-empresas_cadastradas = [[1, 'Empresa SA', 20000091]] #tirar depois
-
-def gerenciar_encomendas(encomendas):
+def gerenciar_encomendas(encomendas, empresas_cadastradas):
     sistema_encomendas = SistemaEncomendas()
     sistema_encomendas.encomendas = encomendas
     
@@ -19,14 +17,14 @@ def gerenciar_encomendas(encomendas):
                 id_encomenda = 1
             else:
                 id_encomenda = len(sistema_encomendas.encomendas)+1
-            print(f'{'--------Empresas parceiras disponíveis--------'.center(60)}')
+            print(f'{'--------Empresas parceiras disponíveis--------'.center(50)}')
+            print()
+            print(f'{'CNPJ empresa'.center(16)}|{'Nome Empresa'.center(34)}')
             for empresa in empresas_cadastradas:
-                print(f'{'ID empresa'.center(12)}|{'Nome Empresa'.center(30)}|{'CNPJ Empresa'.center(18)}')
-                print(f'{str(empresa[0]).center(12)}|{str(empresa[1]).center(30)}|{str(empresa[2]).center(18)}')    
-                print()          
-
-                #print(f'{str(empresa.id_empresa).center(14)}|{empresa.nome.center(12)}|{str(empresa.CNPJ).center(18)}')
-            id_empresa_remetente = int(input('Informe o ID da empresa remetente: '))
+                print(f'{str(empresa.cnpj).center(16)}|{str(empresa.nome).center(34)}')
+                #print(f'{str(empresa[0]).center(16)}|{str(empresa[1]).center(34)}')    
+            print()          
+            id_empresa_remetente = int(input('Informe o CNPJ da empresa remetente: '))
             cpf_destinatario = int(input('Informe o CPF do destinatário: '))
             nome_destinatario = input('Informe o nome do destinatário: ')
             endereco_destinatario = input('Informe o endereço do destinatário: ')

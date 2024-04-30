@@ -15,9 +15,8 @@ def gerenciar_remessas(drones, encomendas):
         
         if opcao == 1:
             print('Criar uma remessa:\n')
-            nova_remessa = Remessa(drones, encomendas)
-            nova_remessa.gerar_itinerario()
-            sistema_remessas.cadastrar_remessa(nova_remessa)
+            sistema_remessas.cadastrar_remessa(drones, encomendas)
+            #gerar_itinerario()
         elif opcao == 2:
             print('Consultar remessa:\n')
             sistema_remessas.listar_remessas()
@@ -54,15 +53,15 @@ class SistemaDeRemessas:
     def __init__(self):
         self.remessas = []
     
-    def cadastrar_remessa(self, remessa):
-        print('Para cadastrar uma remessa, primeiro selecione um drone que fará as entregas:')
+    def cadastrar_remessa(self, drones, encomendas):
+        print('Para cadastrar uma remessa, primeiro selecione um drone que fará as entregas:\n')
         #lista os drones
         #selecione o drone
-        print('Drones Cadastrados: \n')
+        print('Drones Cadastrados')
         print('--------------------------------')
         print(f'{"ID Drone":<10}{"Capacidade em (kg)":<40}')
         print('--------------------------------')
-        for drone in remessa.drones:
+        for drone in drones:
             print(f'{drone.id_drone:<10}{drone.capacidade_drone:<40}')
         print('--------------------------------\n')
 
@@ -71,11 +70,9 @@ class SistemaDeRemessas:
             id_drone_escolhido = input('Informe o ID do Drone desejado: ')
         
             #informa a capacidade do drone
-            for drone in remessa.drones:
+            for drone in drones:
                 if drone.id_drone == int(id_drone_escolhido):
-                    print('\n----------------------------------------')
                     print(f'Capacidade do Drone selecionado: {drone.capacidade_drone} kg')
-                    print('----------------------------------------\n')
                  
             confirmacao = input('Confirma a seleção deste drone? (S/N) ')
         
@@ -88,9 +85,15 @@ class SistemaDeRemessas:
                 print('Opção inválida, tente novamente.')
                 continue
         
-        print('Agora, selecione as encomendas vinculadas a remessa:')
+        print('Agora, selecione as encomendas vinculadas a remessa:\n')
+        print('Encomendas cadastradas')
+        print('--------------------------------------------------------------------------------------------------------------------')
+        print(f'{"ID Encomenda":<15}{"CNPJ Remetente":<15}{"CPF destinatário":<20}{"Nome destinatário":<20}{"Endereço destinatario":<30}{"Peso encomenda":<10}')
+        print('--------------------------------------------------------------------------------------------------------------------')
+        #lista encomendas cadastradas
+        for encomenda in encomendas:
+            print(f'{encomenda.id_encomenda:<15}{encomenda.id_empresa_remetente:<15}{encomenda.cpf_destinatario:<20}{encomenda.nome_destinatario:<20}{encomenda.endereco_destinatario:<30}{encomenda.peso_encomenda:<10}')
         
-        #lista encomenda
         #selecione a encomenda
         #verifica se o peso da encomenda é compativel com o drone
         #se sim, confirma a inclusão
@@ -108,8 +111,8 @@ class SistemaDeRemessas:
         #pergunta, deseja gerar o itinerário?
         #se sim, inicia a função gerar itinerário
         #se não, volta ao menu anterior
-        
-        self.remessas.append(remessa)
+        #remessa = 
+        #self.remessas.append(remessa)
         print('Remessa cadastrada com sucesso.\n')
     
     def listar_remessas(self):

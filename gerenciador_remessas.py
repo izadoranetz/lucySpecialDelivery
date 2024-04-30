@@ -122,8 +122,16 @@ class SistemaDeRemessas:
             elif id_encomenda_escolhida in encomendas_escolhidas:
                 print('Encomenda já selecionada.\n')
                 continue
+            
+            #vincula o objeto da encomenda com aquele cujo id foi selecionado
+            encomenda_escolhida = None
+            for encomenda in encomendas:
+                if encomenda.id_encomenda == int(id_encomenda_escolhida):
+                    encomenda_escolhida = encomenda
+                    break
+
             #se peso é compatível com a carga do drone e da remessa
-            elif peso_utilizado + encomenda.peso_encomenda > peso_capacidade:
+            if peso_utilizado + encomenda_escolhida.peso_encomenda > peso_capacidade:
                 print('Peso da encomenda incompatível com a carga do drone.\n')
                 continue
             
@@ -133,7 +141,7 @@ class SistemaDeRemessas:
             elif confirmacao == 'S' or confirmacao == 's':
                 print('Encomenda selecionada com sucesso.')
                 encomendas_escolhidas.append(id_encomenda_escolhida)
-                peso_utilizado += encomenda.peso_encomenda
+                peso_utilizado += encomenda_escolhida.peso_encomenda
                 
                 #se a carga total já foi atingida
                 if float(peso_utilizado) == float(peso_capacidade):

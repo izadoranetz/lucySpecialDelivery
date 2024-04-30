@@ -3,10 +3,12 @@ import gerenciador_empresas
 import gerenciador_drones
 import gerenciador_encomendas
 
-print('*****************************************************')
-print('Boas-vindas ao Lucy Special Delivery!\n')
-print('Nossos drones entregam rapidamente seus pedidos.')
-print('*****************************************************\n')
+print('*******************************************************************************')
+print()
+print(f'{"Boas-vindas ao Lucy Special Delivery! ".center(80)}')
+print(f'{"Nossos drones entregam rapidamente seus pedidos.".center(80)}')
+print()
+print('*******************************************************************************')
 
 opcao = 0
 empresas_cadastradas = []
@@ -27,10 +29,13 @@ def opcoes_menu():
     
     while True:
 
-        print('\n\nSTATUS DO SISTEMA')
-        print(f'Empresas parceiras cadastradas: {len(empresas_cadastradas)}')
-        print(f'Drones disponíveis para entregas: {len(drones_cadastrados)}')
-        print(f'Encomendas cadastradas: {len(encomendas_cadastradas)}\n\n')
+        print('\n-------------------------------------------------------------------------------')
+        print(f'{"STATUS DO SISTEMA".ljust(80)}')
+        print('-------------------------------------------------------------------------------')
+        print(f'Empresas parceiras cadastradas: {len(empresas_cadastradas)}'.ljust(80))
+        print(f'Drones disponíveis para entregas: {len(drones_cadastrados)}'.ljust(80))
+        print(f'Encomendas cadastradas: {len(encomendas_cadastradas)}'.ljust(80))
+        print('-------------------------------------------------------------------------------\n')
         
         print('MENU PRINCIPAL')
         print('1. Ajuda')

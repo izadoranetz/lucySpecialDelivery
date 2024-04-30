@@ -3,8 +3,10 @@ def gerenciar_empresas(empresas):
     sistema_empresas_parceiras.empresas = empresas
     
     while True:
-        
-        print('\nGERENCIAR EMPRESAS PARCEIRAS')
+        print('\n-------------------------------------------------------------------------------')
+        print('3. Gerenciar empresas parceiras')
+        print('-------------------------------------------------------------------------------\n')
+        print('OPÇÕES')
         print('1. Cadastrar empresa parceira')
         print('2. Listar empresas parceiras')
         print('3. Excluir empresa parceira')
@@ -25,7 +27,7 @@ def gerenciar_empresas(empresas):
             print('Excluir empresa parceira:\n')
             if sistema_empresas_parceiras.empresas == []:
                 print('Não é possível excluir: nenhuma empresa cadastrada.')
-                input('Retornar para o menu anterior? (S) ')
+                input('Pressione enter para retornar ao menu anterior ')
                 continue
             else:
                 cnpj_empresa_excluida = input('Informe o CNPJ da empresa a ser excluída: ')
@@ -34,6 +36,11 @@ def gerenciar_empresas(empresas):
             resposta = input('Retornar ao menu principal? (S/N) ')
             if resposta == 'S' or resposta == 's':
                 return sistema_empresas_parceiras.empresas
+            elif resposta == 'N' or resposta == 'n':
+                continue
+            else:
+                print('Opção inválida. Tente novamente.')
+                continue
         else:
             print('Opção inválida. Tente novamente.')
 
@@ -55,7 +62,7 @@ class SistemaEmpresasParceiras:
     def listar_empresas(self):
         if len(self.empresas) == 0:
             print('Nenhuma empresa cadastrada.')
-            input('Retornar para o menu anterior? (S) ')
+            input('Pressione enter para retornar ao menu anterior ')
             return
         else:
             print('Empresas cadastradas: \n')
@@ -63,7 +70,7 @@ class SistemaEmpresasParceiras:
                 print(f'Empresa {i}:')
                 print(f'Empresa: {empresa.nome}\nCPNJ: {empresa.cnpj}\nEndereço: {empresa.endereco}')
                 print()
-                input('Retornar para o menu anterior? (S) ')
+                input('Pressione enter para retornar ao menu anterior ')
     
     def excluir_empresa(self, cnpj):
         for empresa in self.empresas:

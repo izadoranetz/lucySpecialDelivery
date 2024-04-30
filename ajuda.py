@@ -1,5 +1,7 @@
 def exibir_ajuda():
-    print('\n1. Ajuda:')
+    print('\n-------------------------------------------------------------------------------')
+    print('1. Ajuda')
+    print('-------------------------------------------------------------------------------')
     print('\n1) Para que serve este sistema?\n')
     print('   Este sistema, Lucy Special Delivery, é um serviço de entregas especializado\n   em medicamentos fornecendo entregas rápidas e seguras para farmácias\n   localizadas na Asa Sul, especificamente na rua das farmácias.')
     print('\n2) Como utilizar este sistema?\n')
@@ -13,6 +15,5 @@ def exibir_ajuda():
     print('   Quando a remessa é finalizada e o processo de entrega é iniciado,\n   o sistema irá gerar o itinerário indicando a ordem de entrega\n   dos medicamentos. Após a conclusão do processo de entrega,\n   o drone sairá para entrega conforme o itinerário gerado.\n')
     print('   Finalize o programa quando todas as entregas forem concluídas.\n')
     
-    opcao = input('Retornar ao menu principal? (S/N) ')
-    if opcao == 'S' or opcao == 's':
-        return
+    input('Pressione enter para retornar ao menu principal ')
+    return

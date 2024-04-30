@@ -65,12 +65,17 @@ class SistemaEmpresasParceiras:
             input('Pressione enter para retornar ao menu anterior ')
             return
         else:
-            print('Empresas cadastradas: \n')
-            for i, empresa in enumerate(self.empresas,1):
-                print(f'Empresa {i}:')
-                print(f'Empresa: {empresa.nome}\nCPNJ: {empresa.cnpj}\nEndereço: {empresa.endereco}')
-                print()
-                input('Pressione enter para retornar ao menu anterior ')
+            print('Empresas parceiras cadastradas: \n')
+            print('-----------------------------------------------------------------------------------------')
+            print(f'{"Empresa":<10}{"Nome":<40}{"CNPJ":<20}{"Endereço":<40}')
+            print('-----------------------------------------------------------------------------------------')
+            for i, empresa in enumerate(self.empresas, 1):
+                nome = (empresa.nome[:37] + '...') if len(empresa.nome) > 40 else empresa.nome
+                cnpj = empresa.cnpj
+                endereco = (empresa.endereco[:37] + '...') if len(empresa.endereco) > 40 else empresa.endereco
+                print(f'{f"{i}":<10}{nome:<40}{cnpj:<20}{endereco:<40}')
+            print('-----------------------------------------------------------------------------------------')
+        input('Pressione enter para retornar ao menu anterior ')
     
     def excluir_empresa(self, cnpj):
         for empresa in self.empresas:

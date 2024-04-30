@@ -17,9 +17,9 @@ def gerenciar_encomendas(encomendas, empresas_cadastradas):
                 id_encomenda = 1
             else:
                 id_encomenda = len(sistema_encomendas.encomendas)+1
-            print(f'{'--------Empresas parceiras disponíveis--------'.center(50)}')
+            print(f'{"--------Empresas parceiras disponíveis--------".center(50)}')
             print()
-            print(f'{'CNPJ empresa'.center(16)}|{'Nome Empresa'.center(34)}')
+            print(f'{"CNPJ empresa".center(16)}|{"Nome Empresa".center(34)}')
             for empresa in empresas_cadastradas:
                 print(f'{str(empresa.cnpj).center(16)}|{str(empresa.nome).center(34)}')
                 #print(f'{str(empresa[0]).center(16)}|{str(empresa[1]).center(34)}')    
@@ -72,7 +72,7 @@ class SistemaEncomendas:
             return
         else:
             print('Encomendas cadastradas: \n')
-            print(f'{'ID Encomenda'.center(14)}|{'ID Empresa'.center(12)}|{'CPF Destinatário'.center(18)}|{'Nome destinatário'.center(25)}|{'Endereço destinatário'.center(23)}|{'Telefone destinatário'.center(23)}|{'Peso encomenda'.center(15)}')
+            print(f'{"ID Encomenda".center(14)}|{"ID Empresa".center(12)}|{"CPF Destinatário".center(18)}|{"Nome destinatário".center(25)}|{"Endereço destinatário".center(23)}|{"Telefone destinatário".center(23)}|{"Peso encomenda".center(15)}')
             
             for encomenda in self.encomendas:
                 print(f'{str(encomenda.id_encomenda).center(14)}|{str(encomenda.id_empresa_remetente).center(12)}|{str(encomenda.cpf_destinatario).center(18)}|{encomenda.nome_destinatario.center(25)}|{encomenda.endereco_destinatario.center(23)}|{str(encomenda.telefone_destinatario).center(23)}|{str(encomenda.peso_encomenda).center(15)}')

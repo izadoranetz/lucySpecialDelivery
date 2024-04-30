@@ -14,7 +14,7 @@ def gerenciar_empresas(empresas):
         if opcao == 1:
             print('Cadastrar empresa parceira:\n')
             nome_empresa = input('Informe o nome da empresa: ')
-            cnpj_empresa = input('Informe o CNPJ da empresa: ')
+            cnpj_empresa = verifica_cnpj_valido()
             endereco_empresa = input('Informe o endereço da empresa: ')
             nova_empresa = EmpresaParceira(nome_empresa, cnpj_empresa, endereco_empresa)
             sistema_empresas_parceiras.cadastrar_empresa(nova_empresa)
@@ -23,8 +23,13 @@ def gerenciar_empresas(empresas):
             sistema_empresas_parceiras.listar_empresas()
         elif opcao == 3:
             print('Excluir empresa parceira:\n')
-            cnpj_empresa_excluida = input('Informe o CNPJ da empresa a ser excluída: ')
-            sistema_empresas_parceiras.excluir_empresa(cnpj_empresa_excluida)
+            if sistema_empresas_parceiras.empresas == []:
+                print('Não é possível excluir: nenhuma empresa cadastrada.')
+                input('Retornar para o menu anterior? (S) ')
+                continue
+            else:
+                cnpj_empresa_excluida = input('Informe o CNPJ da empresa a ser excluída: ')
+                sistema_empresas_parceiras.excluir_empresa(cnpj_empresa_excluida)
         elif opcao == 4:
             resposta = input('Retornar ao menu principal? (S/N) ')
             if resposta == 'S' or resposta == 's':
@@ -48,9 +53,9 @@ class SistemaEmpresasParceiras:
         print('Empresa cadastrada com sucesso.\n')
     
     def listar_empresas(self):
-        
         if len(self.empresas) == 0:
-            print('Nenhuma empresa cadastrada.\n')
+            print('Nenhuma empresa cadastrada.')
+            input('Retornar para o menu anterior? (S) ')
             return
         else:
             print('Empresas cadastradas: \n')
@@ -58,6 +63,7 @@ class SistemaEmpresasParceiras:
                 print(f'Empresa {i}:')
                 print(f'Empresa: {empresa.nome}\nCPNJ: {empresa.cnpj}\nEndereço: {empresa.endereco}')
                 print()
+                input('Retornar para o menu anterior? (S) ')
     
     def excluir_empresa(self, cnpj):
         for empresa in self.empresas:
@@ -66,3 +72,16 @@ class SistemaEmpresasParceiras:
                 print('Empresa removida com sucesso.')
                 return
         print('Empresa não encontrada.')
+
+def verifica_cnpj_valido():
+    while True:
+        cnpj = input('Informe o CNPJ da empresa: ')
+        if not cnpj.isnumeric():
+            print('CNPJ deve conter apenas números.')
+            continue
+        if len(cnpj) != 14:
+            print('CNPJ deve conter 14 números.')
+            continue
+        else:
+            return cnpj
+        

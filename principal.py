@@ -71,7 +71,7 @@ def opcoes_menu():
                 input('Voltar para o menu principal? (S) ')
                 continue
             else:
-                encomendas_cadastradas = gerenciador_encomendas.gerenciar_encomendas(encomendas_cadastradas, empresas_cadastradas)
+                print('Gerenciar remessas')
         elif opcao == 6:
             print('Finalizando programa. Tchau!')
             return

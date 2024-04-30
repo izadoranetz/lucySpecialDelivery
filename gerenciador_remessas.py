@@ -55,8 +55,7 @@ class SistemaDeRemessas:
     
     def cadastrar_remessa(self, drones, encomendas):
         print('Para cadastrar uma remessa, primeiro selecione um drone que fará as entregas:\n')
-        #lista os drones
-        #selecione o drone
+        #lista os drones para seleção
         print('Drones Cadastrados')
         print('--------------------------------')
         print(f'{"ID Drone":<10}{"Capacidade em (kg)":<40}')
@@ -68,11 +67,13 @@ class SistemaDeRemessas:
         #loop para seleção e confirmação da seleção do drone
         while True:   
             id_drone_escolhido = input('Informe o ID do Drone desejado: ')
+            drone_escolhido = None
         
             #informa a capacidade do drone
             for drone in drones:
                 if drone.id_drone == int(id_drone_escolhido):
                     print(f'Capacidade do Drone selecionado: {drone.capacidade_drone} kg')
+                    drone_escolhido = drone
                  
             confirmacao = input('Confirma a seleção deste drone? (S/N) ')
         
@@ -86,34 +87,86 @@ class SistemaDeRemessas:
                 continue
         
         print('Agora, selecione as encomendas vinculadas a remessa:\n')
+        #lista encomendas cadastradas
         print('Encomendas cadastradas')
         print('--------------------------------------------------------------------------------------------------------------------')
         print(f'{"ID Encomenda":<15}{"CNPJ Remetente":<15}{"CPF destinatário":<20}{"Nome destinatário":<20}{"Endereço destinatario":<30}{"Peso encomenda":<10}')
         print('--------------------------------------------------------------------------------------------------------------------')
-        #lista encomendas cadastradas
         for encomenda in encomendas:
             print(f'{encomenda.id_encomenda:<15}{encomenda.id_empresa_remetente:<15}{encomenda.cpf_destinatario:<20}{encomenda.nome_destinatario:<20}{encomenda.endereco_destinatario:<30}{encomenda.peso_encomenda:<10}')
+        print()
         
-        #selecione a encomenda
-        #verifica se o peso da encomenda é compativel com o drone
-        #se sim, confirma a inclusão
-        #se não, informa que o peso da encomenda é incompatível com o drone
+        #loop de seleção
+        encomenda_encerrada = False
+        peso_utilizado = 0
+        peso_capacidade = drone_escolhido.capacidade_drone
+        encomendas_escolhidas = []
         
-        #adicionar mais uma?
-        #sim
-        #selecione a encomeda
+        while True:
+            if encomenda_encerrada == True:
+                break
+            print(f'Capacidade do drone: {peso_capacidade} kg')
+            print(f'Peso da remessa: {peso_utilizado} kg')
+            id_encomenda_escolhida = input('Informe o ID da encomenda desejada ou FINALIZAR: ')
+            #verificações
+            #se quer finalizar
+            if id_encomenda_escolhida == 'FINALIZAR' or id_encomenda_escolhida == 'finalizar':
+                print('Fechando remessa...\n')
+                encomenda_encerrada = True
+                break
+            #se o número da encomenda existe (usa list comprehension para iterar nos ids de encomendas)
+            if int(id_encomenda_escolhida) not in [encomenda.id_encomenda for encomenda in encomendas]:
+                print('Encomenda não encontrada.\n')
+                continue
+            #se o número já não foi informado
+            elif id_encomenda_escolhida in encomendas_escolhidas:
+                print('Encomenda já selecionada.\n')
+                continue
+            #se peso é compatível com a carga do drone e da remessa
+            elif peso_utilizado + encomenda.peso_encomenda > peso_capacidade:
+                print('Peso da encomenda incompatível com a carga do drone.\n')
+                continue
+            
+            confirmacao = input('Confirma a seleção desta encomenda? (S/N) ')
+            if confirmacao == 'N' or confirmacao == 'n':
+                continue
+            elif confirmacao == 'S' or confirmacao == 's':
+                print('Encomenda selecionada com sucesso.')
+                encomendas_escolhidas.append(id_encomenda_escolhida)
+                peso_utilizado += encomenda.peso_encomenda
+                
+                #se a carga total já foi atingida
+                if float(peso_utilizado) == float(peso_capacidade):
+                    print('Carga do drone atingida. Fechando remessa...\n')
+                    encomenda_encerrada = True
+                    break
+                
+                resposta = input('Deseja adicionar mais uma encomenda? (S/N) ')
+                    
+                if resposta == 'S' or resposta == 's':
+                    continue
+                elif resposta == 'N' or resposta == 'n':
+                    encomenda_encerrada = True
+                    break
+                else:
+                    print('Opção inválida, tente novamente.')
+                    continue
+            else:
+                print('Opção inválida, tente novamente.')
+                continue
         
-        #não
-        #encerra a remessa
-        #informa que a remessa foi cadastrada com sucesso
-        #informa o número da remessa e o resumo do número de encomendas e peso total das entregas
+        print(f'{len(encomendas_escolhidas)} encomenda(s) vinculada(s). Peso total da remessa {peso_utilizado} kg.')
         
+        if len(encomendas_escolhidas) == 0:
+            print('Nenhuma encomenda selecionada. Remessa não criada.\n')
+            return
+        else:
+            nova_remessa = Remessa(drone_escolhido, encomendas_escolhidas)
+            self.remessas.append(nova_remessa)
+      
         #pergunta, deseja gerar o itinerário?
         #se sim, inicia a função gerar itinerário
         #se não, volta ao menu anterior
-        #remessa = 
-        #self.remessas.append(remessa)
-        print('Remessa cadastrada com sucesso.\n')
     
     def listar_remessas(self):
         if self.remessas == []:
@@ -141,8 +194,7 @@ class SistemaDeRemessas:
         print('Remessa não encontrada.\n')
     
     #def gerar_itinerario(self, drones, encomendas):
-        
-        # lista encadeada
+        # direciona para módulo com lista encadeada
     
     def retornar_remessas(self):
         return self.remessas

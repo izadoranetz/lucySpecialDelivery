@@ -24,7 +24,8 @@ def gerenciar_empresas(empresas):
         elif opcao == 3:
             print('Excluir empresa parceira:\n')
             if sistema_empresas_parceiras.empresas == []:
-                print('Não é possível excluir: nenhuma empresa cadastrada.\n')
+                print('Não é possível excluir: nenhuma empresa cadastrada.')
+                input('Retornar para o menu anterior? (S) ')
                 continue
             else:
                 cnpj_empresa_excluida = input('Informe o CNPJ da empresa a ser excluída: ')
@@ -53,7 +54,8 @@ class SistemaEmpresasParceiras:
     
     def listar_empresas(self):
         if len(self.empresas) == 0:
-            print('Nenhuma empresa cadastrada.\n')
+            print('Nenhuma empresa cadastrada.')
+            input('Retornar para o menu anterior? (S) ')
             return
         else:
             print('Empresas cadastradas: \n')
@@ -61,6 +63,7 @@ class SistemaEmpresasParceiras:
                 print(f'Empresa {i}:')
                 print(f'Empresa: {empresa.nome}\nCPNJ: {empresa.cnpj}\nEndereço: {empresa.endereco}')
                 print()
+                input('Retornar para o menu anterior? (S) ')
     
     def excluir_empresa(self, cnpj):
         for empresa in self.empresas:

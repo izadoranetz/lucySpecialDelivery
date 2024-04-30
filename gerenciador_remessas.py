@@ -6,27 +6,22 @@ def gerenciar_remessas(drones, encomendas):
         print('5. Gerenciar remessas')
         print('-------------------------------------------------------------------------------\n')
         print('OPÇÕES')
-        print('1. Criar uma remessa')
+        print('1. Criar uma remessa e gerar itinerário')
         print('2. Consultar remessa')
-        print('3. Gerar Itinerário')
-        print('4. Retornar ao menu principal\n')
+        print('3. Retornar ao menu principal\n')
         
         opcao = int(input('Informe o número da opção desejada: '))
         
         if opcao == 1:
-            print('Criar uma remessa:\n')
+            print('Criar uma remessa e gerar itinerário:\n')
             sistema_remessas.cadastrar_remessa(drones, encomendas)
-            #gerar_itinerario()
         elif opcao == 2:
             print('Consultar remessa:\n')
             sistema_remessas.listar_remessas()
         elif opcao == 3:
-            print('Gerar Itinerário:\n')
-            sistema_remessas.gerar_itinerario(drones, encomendas)
-        elif opcao == 4:
             resposta = input('Retornar ao menu principal? (S/N) ')
             if resposta == 'S' or resposta == 's':
-                return sistema_remessas.remessas
+                return
             elif resposta == 'N' or resposta == 'n':
                 continue
             else:
@@ -172,9 +167,10 @@ class SistemaDeRemessas:
             nova_remessa = Remessa(drone_escolhido, encomendas_escolhidas)
             self.remessas.append(nova_remessa)
       
-        #pergunta, deseja gerar o itinerário?
         #se sim, inicia a função gerar itinerário
+        print('Gerando itinerário...')
         #se não, volta ao menu anterior
+        
     
     def listar_remessas(self):
         if self.remessas == []:

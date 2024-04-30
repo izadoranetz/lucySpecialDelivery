@@ -85,7 +85,7 @@ def opcoes_menu():
                 input('Pressione enter para retornar ao menu principal ')
                 continue
             else:
-                remessas_cadastradas = gerenciador_remessas.gerenciar_remessas(drones_cadastrados, encomendas_cadastradas)
+                gerenciador_remessas.gerenciar_remessas(drones_cadastrados, encomendas_cadastradas)
         elif opcao == 6:
             print('Finalizando programa. Tchau!')
             return

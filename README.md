@@ -4,6 +4,9 @@ Bem-vindo ao Lucy Special Delivery!
 
 Nosso sistema gerencia entregas rápidas e eficientes por drones, proporcionando uma logística otimizada para suas necessidades de entrega.
 
+<img width="3010" alt="Fluxo-sistema" src="https://github.com/izadoranetz/lucySpecialDelivery/assets/10082957/718d88ec-458b-4c22-822f-26112ddf516a">
+
+
 ## Menu Principal
 
 ### Opções Disponíveis
@@ -11,8 +14,9 @@ Nosso sistema gerencia entregas rápidas e eficientes por drones, proporcionando
 1. **Ajuda:** Exibe informações de ajuda sobre o sistema.
 2. **Gerenciar drones:** Permite o gerenciamento dos drones disponíveis.
 3. **Gerenciar empresas parceiras:** Facilita o gerenciamento das empresas parceiras cadastradas.
-4. **Gerenciar remessas:** Gerencia as remessas de entregas.
-5. **Sair:** Encerra o programa.
+4. **Gerenciar encomendas:** Permite o cadastro das encomendas das vendas feitas pelas empresas parceiras.
+5. **Gerenciar remessas:** Gerencia as remessas de entregas.
+6. **Sair:** Encerra o programa.
 
 ## Instruções de Uso
 

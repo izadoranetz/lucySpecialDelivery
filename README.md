@@ -4,12 +4,17 @@ Bem-vindo ao Lucy Special Delivery!
 
 Nosso sistema gerencia entregas rápidas e eficientes por drones, proporcionando uma logística otimizada para suas necessidades de entrega.
 
+## Contexto
+
+O serviço de entregas Lucy Special Delivery realiza entregas de medicamentos para farmácias na Asa Sul (Rua das Farmácias).
+
+O projeto prevê que a relação das entregas (nome do destinatário, empresa remetente, dimensões e peso da encomenda) são recebidas online através de uma API que conecta o sistema do ecommerce varejo com o sistema do serviço de entregas. Contudo, em sua fase MVP, o sistema receberá essas informações, em um primeiro momento, através de interface, com cadastro manual.
+
 <img width="3010" alt="Fluxo-sistema" src="https://github.com/izadoranetz/lucySpecialDelivery/assets/10082957/718d88ec-458b-4c22-822f-26112ddf516a">
 
+## Funcionalidades
 
-## Menu Principal
-
-### Opções Disponíveis
+### Opções Disponíveis no Menu Principal
 
 1. **Ajuda:** Exibe informações de ajuda sobre o sistema.
 2. **Gerenciar drones:** Permite o gerenciamento dos drones disponíveis.

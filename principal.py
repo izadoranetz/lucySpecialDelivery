@@ -27,7 +27,12 @@ def opcoes_menu():
     
     while True:
 
-        print('\nMENU PRINCIPAL')
+        print('\n\nSTATUS DO SISTEMA')
+        print(f'Empresas parceiras cadastradas: {len(empresas_cadastradas)}')
+        print(f'Drones disponíveis para entregas: {len(drones_cadastrados)}')
+        print(f'Encomendas cadastradas: {len(encomendas_cadastradas)}\n\n')
+        
+        print('MENU PRINCIPAL')
         print('1. Ajuda')
         print('2. Gerenciar drones')
         print('3. Gerenciar empresas parceiras')
@@ -35,7 +40,6 @@ def opcoes_menu():
         print('5. Gerenciar remessas')
         print('6. Sair\n')
         
-        print(f'Empresas parceiras cadastradas: {len(empresas_cadastradas)}\nDrones disponíveis: {len(drones_cadastrados)}\n\n')
 
         opcao = int(input('Informe o número da opção desejada: '))
 

@@ -57,7 +57,7 @@ def opcoes_menu():
         elif opcao == 4:
             if len(empresas_cadastradas) == 0:
                 print('Nenhuma empresa cadastrada. Cadastre uma empresa antes de gerenciar as encomendas.\n')
-                input('Voltar para o menu principal? (S) ')
+                input('Pressione enter para retornar ao menu principal ')
                 continue
             else:
                 encomendas_cadastradas = gerenciador_encomendas.gerenciar_encomendas(encomendas_cadastradas, empresas_cadastradas)
@@ -65,15 +65,15 @@ def opcoes_menu():
             # vai receber empresas_cadastradas e drones_cadastrados
             if len(drones_cadastrados) == 0 and len(empresas_cadastradas) == 0:
                 print('Nenhuma empresa e nenhum drone cadastrados. Cadastre uma empresa e um drone antes de gerenciar remessas.\n')
-                input('Voltar para o menu principal? (S) ')
+                input('Pressione enter para retornar ao menu principal ')
                 continue
             elif len(empresas_cadastradas) == 0:
                 print('Nenhuma empresa cadastrada. Cadastre uma empresa antes de gerenciar remessas.\n')
-                input('Voltar para o menu principal? (S) ')
+                input('Pressione enter para retornar ao menu principal ')
                 continue
             elif len(drones_cadastrados) == 0:
                 print('Nenhum drone cadastrado. Cadastre um drone antes de gerenciar remessas.\n')
-                input('Voltar para o menu principal? (S) ')
+                input('Pressione enter para retornar ao menu principal ')
                 continue
             else:
                 print('Gerenciar remessas')

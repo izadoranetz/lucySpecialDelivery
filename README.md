@@ -51,6 +51,9 @@ Selecione uma opção no menu e siga as instruções fornecidas para utilizar as
 
 Ao utilizar as opções do menu, siga as instruções fornecidas para realizar as operações desejadas de forma eficiente e intuitiva.
 
+![image](https://github.com/izadoranetz/lucySpecialDelivery/assets/10082957/4baa81cb-3aa0-446e-be14-1b7eb8e75772)
+
+
 Para obter mais informações sobre o sistema ou suporte técnico, entre em contato com nossa equipe de atendimento.
 
 Obrigado por escolher o Lucy Special Delivery para suas entregas!

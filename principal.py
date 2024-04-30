@@ -18,20 +18,20 @@ encomendas_cadastradas = []
 remessas_cadastradas = []
 
 # Descomentar as linhas abaixo mockar dados e facilitar testes
-drone1 = gerenciador_drones.Drone(1, 2)
-drone2 = gerenciador_drones.Drone(2, 4)
-empresa1 = gerenciador_empresas.EmpresaParceira('Farmacia Popular', 10000000000112, 'Rua Asa Sul Loja 1')
-empresa2 = gerenciador_empresas.EmpresaParceira('Farmaceutica', 30000000000135, 'Rua Asa Sul Loja 2')
-empresa3 = gerenciador_empresas.EmpresaParceira('Farmaceutica Popular de nome Enorme de Grande sera que cabe tudo', 20000000000222, 'Rua Asa Sul Loja 4')
-encomenda1 = gerenciador_encomendas.Encomenda(1, 20000000000222, 12345678901, 'João', 'Rua 1', 61999999999, 1)
-encomenda2 = gerenciador_encomendas.Encomenda(2, 10000000000112, 12345678902, 'Maria', 'Rua 2', 61999999998, 2)
-empresas_cadastradas.append(empresa1)
-empresas_cadastradas.append(empresa2)
-empresas_cadastradas.append(empresa3)
-drones_cadastrados.append(drone1)
-drones_cadastrados.append(drone2)
-encomendas_cadastradas.append(encomenda1)
-encomendas_cadastradas.append(encomenda2)
+# drone1 = gerenciador_drones.Drone(1, 2)
+# drone2 = gerenciador_drones.Drone(2, 4)
+# empresa1 = gerenciador_empresas.EmpresaParceira('Farmacia Popular', 10000000000112, 'Rua Asa Sul Loja 1')
+# empresa2 = gerenciador_empresas.EmpresaParceira('Farmaceutica', 30000000000135, 'Rua Asa Sul Loja 2')
+# empresa3 = gerenciador_empresas.EmpresaParceira('Farmaceutica Popular de nome Enorme de Grande sera que cabe tudo', 20000000000222, 'Rua Asa Sul Loja 4')
+# encomenda1 = gerenciador_encomendas.Encomenda(1, 20000000000222, 12345678901, 'João', 'Rua 1', 61999999999, 1)
+# encomenda2 = gerenciador_encomendas.Encomenda(2, 10000000000112, 12345678902, 'Maria', 'Rua 2', 61999999998, 2)
+# empresas_cadastradas.append(empresa1)
+# empresas_cadastradas.append(empresa2)
+# empresas_cadastradas.append(empresa3)
+# drones_cadastrados.append(drone1)
+# drones_cadastrados.append(drone2)
+# encomendas_cadastradas.append(encomenda1)
+# encomendas_cadastradas.append(encomenda2)
 
 
 def opcoes_menu():

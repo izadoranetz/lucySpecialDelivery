@@ -13,6 +13,5 @@ def exibir_ajuda():
     print('   Quando a remessa é finalizada e o processo de entrega é iniciado,\n   o sistema irá gerar o itinerário indicando a ordem de entrega\n   dos medicamentos. Após a conclusão do processo de entrega,\n   o drone sairá para entrega conforme o itinerário gerado.\n')
     print('   Finalize o programa quando todas as entregas forem concluídas.\n')
     
-    opcao = input('Retornar ao menu principal? (S/N) ')
-    if opcao == 'S' or opcao == 's':
-        return
+    input('Pressione enter para retornar ao menu principal ')
+    return

@@ -25,7 +25,6 @@ class ListaItinerario:
         atual = self.cabeca.proximo
         tempo_entrega = datetime.now() + timedelta(minutes=30)
         
-        
         print('--------------------------------------------------------------------------------------------------------')
         print(f'{"Previsão da entrega":<25}{"ID da encomenda":<25}{"Destinatário":<20}{"Endereço":<30}')
         print('--------------------------------------------------------------------------------------------------------')

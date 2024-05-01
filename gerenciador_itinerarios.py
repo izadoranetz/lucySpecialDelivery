@@ -1,64 +1,45 @@
-def gerenciar_itinerarios(encomendas_cadastradas):
-   
-    while True:
+from datetime import datetime, timedelta
+
+def gerenciar_itinerarios(remessa):
+    print('Gerando itinerário...')
+    itinerario = ListaItinerario()
+    for item in remessa:
+        itinerario.inserir_destino(item)
         
-        print('\nGERENCIAR ITINERÁRIOS')
-        print('1. Criar itinerário')
-        print('2. Visualizar itinerário')
-        print('3. Excluir itinerário')
-        print('4. Retornar ao menu principal\n')
-        opcao = int(input('Informe o número da opção desejada: '))
-
-        if opcao == 1:
-            print('Criar itinerário:\n')
- 
-        elif opcao == 2:
-            print('Visualizar itinerário:\n')
-
-        elif opcao == 3:
-            print('Excluir itinerário:\n')
-
-        elif opcao == 4:
-            resposta = input('Retornar ao menu principal? (S/N) ')
-            if resposta == 'S' or resposta == 's':
-                return sistema_itinearios.itinerarios
-        else:
-            print('Opção inválida. Tente novamente.')
-
-class NohIntinerario:
-    def __init__(self, id_encomenda):
-        self.id_encomenda = id_encomenda
+        
+    itinerario.travessia_itinerario()
+    #print(remessa[0].encomendas)
+    #for item in remessa[0].encomendas:
+      #  print(item.id_encomenda)
+      #  print(item.nome_destinatario)
+   
+class NohItinerario:
+    def __init__(self, encomenda):
+        self.encomenda = encomenda
         self.proximo = None
 
 class ListaItinerario:
     def __init__(self):
-        self.cabeca = NohIntinerario('Centro de Distribuição')
+        self.cabeca = NohItinerario('Centro de Distribuição')
         self.cabeca.proximo = self.cabeca
 
+    def inserir_destino(self, encomenda):
+        novo_noh = NohItinerario(encomenda)
+        novo_noh.proximo = self.cabeca.proximo
+        self.cabeca.proximo = novo_noh
 
-    def inserir_destino(self, id_encomenda):
-        novo_noh = NohIntinerario(id_encomenda)
-        atual = self.cabeca
-
-        # Encontrar o penúltimo nó
-        while atual.proximo != self.cabeca:
+    def travessia_itinerario(self):
+        atual = self.cabeca.proximo
+        tempo_entrega = datetime.now() + timedelta(minutes=30)
+        
+        
+        print('--------------------------------------------------------------------------------------------------------')
+        print(f'{"Previsão da entrega":<25}{"ID da encomenda":<25}{"Destinatário":<20}{"Endereço":<30}')
+        print('--------------------------------------------------------------------------------------------------------')
+        
+        while atual != self.cabeca:
+            for encomenda in atual.encomenda.encomendas:  
+                print(f'{tempo_entrega.strftime("%d/%m/%y %H:%M"):<25}{encomenda.id_encomenda:<25}{encomenda.nome_destinatario:<20}{encomenda.endereco_destinatario:<30}')
+                tempo_entrega += timedelta(minutes=20)
             atual = atual.proximo
-
-        # Inserir o novo nó no penúltimo lugar
-        novo_noh.proximo = atual.proximo
-        atual.proximo = novo_noh
-
-    def travessia(self):
-        atual = self.cabeca
-        while atual:
-            print(atual.id_encomenda)
-            atual = atual.proximo
-            if atual == self.cabeca:
-                print('Centro de Distribuição')
-                break
-
-itinerario = ListaItinerario()
-itinerario.inserir_destino('a')
-itinerario.inserir_destino('b')
-itinerario.inserir_destino('c')
-itinerario.travessia()  
+        print(f'Retorno ao Centro de Distribuição às {tempo_entrega.strftime("%H:%M")}')

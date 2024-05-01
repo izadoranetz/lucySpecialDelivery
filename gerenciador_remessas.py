@@ -170,12 +170,9 @@ class SistemaDeRemessas:
             self.remessas.append(nova_remessa)
             print('Remessa criada com sucesso!')
 
-            #inicia a função gerar itinerário
+            #inicia a função gerar itinerário que printa as encomendas com data de entrega
             gerenciador_itinerarios.gerenciar_itinerarios(self.remessas)
-            #printa a lista do itinerário
-            
-        
-    
+
     def listar_remessas(self):
         if self.remessas == []:
             print('Nenhuma remessa cadastrada.\n')
@@ -200,9 +197,6 @@ class SistemaDeRemessas:
                 print('Remessa finalizada com sucesso.\n')
                 return
         print('Remessa não encontrada.\n')
-    
-    #def gerar_itinerario(self, drones, encomendas):
-        # direciona para módulo com lista encadeada
     
     def retornar_remessas(self):
         return self.remessas

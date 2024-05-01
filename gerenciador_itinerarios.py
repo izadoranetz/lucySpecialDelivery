@@ -5,14 +5,7 @@ def gerenciar_itinerarios(remessa):
     itinerario = ListaItinerario()
     for item in remessa:
         itinerario.inserir_destino(item)
-        
-        
     itinerario.travessia_itinerario()
-    #print(remessa[0].encomendas)
-    #for item in remessa[0].encomendas:
-      #  print(item.id_encomenda)
-      #  print(item.nome_destinatario)
-   
 class NohItinerario:
     def __init__(self, encomenda):
         self.encomenda = encomenda

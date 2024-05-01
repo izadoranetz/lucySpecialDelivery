@@ -9,8 +9,7 @@ def gerenciar_remessas(drones, encomendas):
         print('-------------------------------------------------------------------------------\n')
         print('OPÇÕES')
         print('1. Criar uma remessa e gerar itinerário')
-        print('2. Consultar remessa')
-        print('3. Retornar ao menu principal\n')
+        print('2. Retornar ao menu principal\n')
         
         opcao = int(input('Informe o número da opção desejada: '))
         
@@ -18,9 +17,6 @@ def gerenciar_remessas(drones, encomendas):
             print('Criar uma remessa e gerar itinerário:\n')
             sistema_remessas.cadastrar_remessa(drones, encomendas)
         elif opcao == 2:
-            print('Consultar remessa:\n')
-            sistema_remessas.listar_remessas()
-        elif opcao == 3:
             resposta = input('Retornar ao menu principal? (S/N) ')
             if resposta == 'S' or resposta == 's':
                 return
@@ -38,12 +34,6 @@ class Remessa:
     def __init__(self, drones, encomendas):
         self.drones = drones
         self.encomendas = encomendas
-    
-    def gerar_itinerario(self):
-        pass
-    
-    def finalizar_remessa(self):
-        pass
 
 class SistemaDeRemessas:
     def __init__(self):
@@ -89,7 +79,7 @@ class SistemaDeRemessas:
         print(f'{"ID Encomenda":<15}{"CNPJ Remetente":<15}{"CPF destinatário":<20}{"Nome destinatário":<20}{"Endereço destinatario":<30}{"Peso encomenda":<10}')
         print('--------------------------------------------------------------------------------------------------------------------')
         for encomenda in encomendas:
-            print(f'{encomenda.id_encomenda:<15}{encomenda.id_empresa_remetente:<15}{encomenda.cpf_destinatario:<20}{encomenda.nome_destinatario:<20}{encomenda.endereco_destinatario:<30}{encomenda.peso_encomenda:<10}')
+            print(f'{encomenda.id_encomenda:<15}{encomenda.cnpj_empresa_remetente:<15}{encomenda.cpf_destinatario:<20}{encomenda.nome_destinatario:<20}{encomenda.endereco_destinatario:<30}{encomenda.peso_encomenda:<10}')
         print()
         
         #loop de seleção
@@ -173,30 +163,3 @@ class SistemaDeRemessas:
             #inicia a função gerar itinerário que printa as encomendas com data de entrega
             gerenciador_itinerarios.gerenciar_itinerarios(self.remessas)
 
-    def listar_remessas(self):
-        if self.remessas == []:
-            print('Nenhuma remessa cadastrada.\n')
-        else:
-            for remessa in self.remessas:
-                print(f'Drones: {remessa.drones}')
-                print(f'Encomendas: {remessa.encomendas}')
-                print(f'Itinerário: {remessa.itinerario}\n')
-    
-    def excluir_remessa(self, drones, encomendas):
-        for remessa in self.remessas:
-            if remessa.drones == drones and remessa.encomendas == encomendas:
-                self.remessas.remove(remessa)
-                print('Remessa excluída com sucesso.\n')
-                return
-        print('Remessa não encontrada.\n')
-    
-    def finalizar_remessa(self, drones, encomendas):
-        for remessa in self.remessas:
-            if remessa.drones == drones and remessa.encomendas == encomendas:
-                remessa.finalizar_remessa()
-                print('Remessa finalizada com sucesso.\n')
-                return
-        print('Remessa não encontrada.\n')
-    
-    def retornar_remessas(self):
-        return self.remessas

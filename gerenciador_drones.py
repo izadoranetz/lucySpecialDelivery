@@ -55,9 +55,12 @@ class SistemaDrones:
             return
         else:
             print('Drones cadastrados: \n')
-            for i, drone in enumerate(self.drones,1):
-                print(f'Id do Drone: {drone.id_drone}\nCapacidade do Drone: {drone.capacidade_drone}')
-                print()
+            print('--------------------------')
+            print(f'{"ID Drone".ljust(10)}{"Capacidade drone".ljust(18)}')
+            print('--------------------------')
+            for drone in self.drones:
+                print(f'{str(drone.id_drone).ljust(10)}{str(drone.capacidade_drone).ljust(18)}')
+            print('--------------------------')
     
     def excluir_drone(self, id_drone):
         for drone in self.drones:

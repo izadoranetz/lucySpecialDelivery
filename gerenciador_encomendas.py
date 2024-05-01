@@ -17,13 +17,13 @@ def gerenciar_encomendas(encomendas, empresas_cadastradas):
                 id_encomenda = 1
             else:
                 id_encomenda = len(sistema_encomendas.encomendas)+1
-            print(f'{"--------Empresas parceiras disponíveis--------".center(50)}')
-            print()
-            print(f'{"CNPJ empresa".center(16)}|{"Nome Empresa".center(34)}')
+            print('Empresas parceiras cadastradas: \n')
+            print('----------------------------------------------------')
+            print(f'{"CNPJ empresa".ljust(18)}{"Nome Empresa".ljust(34)}')
+            print('----------------------------------------------------')
             for empresa in empresas_cadastradas:
-                print(f'{str(empresa.cnpj).center(16)}|{str(empresa.nome).center(34)}')
-                #print(f'{str(empresa[0]).center(16)}|{str(empresa[1]).center(34)}')    
-            print()          
+                print(f'{str(empresa.cnpj).ljust(18)}{str(empresa.nome).ljust(34)}')
+            print('----------------------------------------------------')         
             id_empresa_remetente = int(input('Informe o CNPJ da empresa remetente: '))
             cpf_destinatario = int(input('Informe o CPF do destinatário: '))
             nome_destinatario = input('Informe o nome do destinatário: ')
@@ -48,9 +48,9 @@ def gerenciar_encomendas(encomendas, empresas_cadastradas):
 
 
 class Encomenda:
-    def __init__(self, id_encomenda, id_empresa_remetente, cpf_destinatario, nome_destinatario,  endereco_destinatario, telefone_destinatario, peso_encomenda):
+    def __init__(self, id_encomenda, cnpj_empresa_remetente, cpf_destinatario, nome_destinatario,  endereco_destinatario, telefone_destinatario, peso_encomenda):
         self.id_encomenda = id_encomenda
-        self.id_empresa_remetente = id_empresa_remetente
+        self.cnpj_empresa_remetente = cnpj_empresa_remetente
         self.cpf_destinatario = cpf_destinatario
         self.nome_destinatario = nome_destinatario
         self.endereco_destinatario = endereco_destinatario
@@ -72,11 +72,13 @@ class SistemaEncomendas:
             return
         else:
             print('Encomendas cadastradas: \n')
-            print(f'{"ID Encomenda".center(14)}|{"ID Empresa".center(12)}|{"CPF Destinatário".center(18)}|{"Nome destinatário".center(25)}|{"Endereço destinatário".center(23)}|{"Telefone destinatário".center(23)}|{"Peso encomenda".center(15)}')
+            print('---------------------------------------------------------------------------------------------------------------------------------------------------------')
+            print(f'{"ID Encomenda".ljust(14)}{"CNPJ Empresa".ljust(18)}{"CPF Destinatário".ljust(20)}{"Nome destinatário".ljust(27)}{"Endereço destinatário".ljust(32)}{"Telefone destinatário".ljust(25)}{"Peso encomenda".ljust(17)}')
+            print('---------------------------------------------------------------------------------------------------------------------------------------------------------')
             
             for encomenda in self.encomendas:
-                print(f'{str(encomenda.id_encomenda).center(14)}|{str(encomenda.id_empresa_remetente).center(12)}|{str(encomenda.cpf_destinatario).center(18)}|{encomenda.nome_destinatario.center(25)}|{encomenda.endereco_destinatario.center(23)}|{str(encomenda.telefone_destinatario).center(23)}|{str(encomenda.peso_encomenda).center(15)}')
-    
+                print(f'{str(encomenda.id_encomenda).ljust(14)}{str(encomenda.cnpj_empresa_remetente).ljust(18)}{str(encomenda.cpf_destinatario).ljust(20)}{encomenda.nome_destinatario.ljust(27)}{encomenda.endereco_destinatario.ljust(32)}{str(encomenda.telefone_destinatario).ljust(25)}{str(encomenda.peso_encomenda).ljust(17)}')
+            print('---------------------------------------------------------------------------------------------------------------------------------------------------------')
     def excluir_encomenda(self, id_encomenda):
         id_encomenda = int(id_encomenda)
         for encomenda in self.encomendas:

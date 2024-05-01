@@ -1,3 +1,5 @@
+import gerenciador_itinerarios
+
 def gerenciar_remessas(drones, encomendas):
     sistema_remessas = SistemaDeRemessas()
     
@@ -36,7 +38,6 @@ class Remessa:
     def __init__(self, drones, encomendas):
         self.drones = drones
         self.encomendas = encomendas
-        self.itinerario = []
     
     def gerar_itinerario(self):
         pass
@@ -95,6 +96,7 @@ class SistemaDeRemessas:
         encomenda_encerrada = False
         peso_utilizado = 0
         peso_capacidade = drone_escolhido.capacidade_drone
+        #lista com os ids das encomendas escolhidas para evitar repetição na seleção
         encomendas_escolhidas = []
         
         while True:
@@ -134,8 +136,8 @@ class SistemaDeRemessas:
             if confirmacao == 'N' or confirmacao == 'n':
                 continue
             elif confirmacao == 'S' or confirmacao == 's':
+                encomendas_escolhidas.append(encomenda_escolhida)
                 print('Encomenda selecionada com sucesso.')
-                encomendas_escolhidas.append(id_encomenda_escolhida)
                 peso_utilizado += encomenda_escolhida.peso_encomenda
                 
                 #se a carga total já foi atingida
@@ -166,10 +168,12 @@ class SistemaDeRemessas:
         else:
             nova_remessa = Remessa(drone_escolhido, encomendas_escolhidas)
             self.remessas.append(nova_remessa)
-      
-        #se sim, inicia a função gerar itinerário
-        print('Gerando itinerário...')
-        #se não, volta ao menu anterior
+            print('Remessa criada com sucesso!')
+
+            #inicia a função gerar itinerário
+            gerenciador_itinerarios.gerenciar_itinerarios(self.remessas)
+            #printa a lista do itinerário
+            
         
     
     def listar_remessas(self):

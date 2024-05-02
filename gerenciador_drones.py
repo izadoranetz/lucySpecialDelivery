@@ -17,7 +17,13 @@ def gerenciar_drones(drones):
                 id_drone = 1
             else:
                 id_drone = len(sistema_drones.drones)+1
-            capacidade_drone = float(input('Informe a capacidade do drone (em kg): '))
+            while True:
+                capacidade_drone = input('Informe a capacidade do drone (em kg): ')
+                try:
+                    capacidade_drone = float(capacidade_drone)
+                    break 
+                except ValueError:
+                    print('Valor inválido. Informe valores numéricos, com casas decimais separadas por "." (ponto).')
             novo_drone = Drone(id_drone, capacidade_drone)
             sistema_drones.cadastrar_drone(novo_drone)
         elif opcao == 2:

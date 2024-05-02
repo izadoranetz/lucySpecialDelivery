@@ -24,13 +24,19 @@ def gerenciar_encomendas(encomendas, empresas_cadastradas):
             for empresa in empresas_cadastradas:
                 print(f'{str(empresa.cnpj).ljust(18)}{str(empresa.nome).ljust(34)}')
             print('----------------------------------------------------')         
-            id_empresa_remetente = int(input('Informe o CNPJ da empresa remetente: '))
-            cpf_destinatario = int(input('Informe o CPF do destinatário: '))
+            cnpj_empresa_remetente = input('Informe o CNPJ da empresa remetente: ')
+            cpf_destinatario = input('Informe o CPF do destinatário: ')
             nome_destinatario = input('Informe o nome do destinatário: ')
             endereco_destinatario = input('Informe o endereço do destinatário: ')
-            telefone_destinatario = int(input('Informe o telefone do destinatário: '))
-            peso_encomenda = float(input('Informe o peso da encomenda: '))
-            nova_encomenda = Encomenda(id_encomenda, id_empresa_remetente, cpf_destinatario, nome_destinatario,  endereco_destinatario, telefone_destinatario, peso_encomenda)
+            telefone_destinatario = input('Informe o telefone do destinatário: ')
+            while True:
+                peso_encomenda = input('Informe o peso da encomenda (em kg): ')
+                try:
+                    peso_encomenda = float(peso_encomenda)
+                    break 
+                except ValueError:
+                    print('Valor inválido. Informe valores numéricos, com casas decimais separadas por "." (ponto).')
+            nova_encomenda = Encomenda(id_encomenda, cnpj_empresa_remetente, cpf_destinatario, nome_destinatario,  endereco_destinatario, telefone_destinatario, peso_encomenda)
             sistema_encomendas.cadastrar_encomenda(nova_encomenda)
         elif opcao == 2:
             print('Listar encomendas:\n')
